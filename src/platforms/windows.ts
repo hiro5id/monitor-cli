@@ -40,12 +40,14 @@ export class Windows implements MonitorControl {
       try {
         screen.turnOn();
 
-        // Windows.exec(
-        //   `powershell "Add-Type -AssemblyName System.Windows.Forms;$Pos = [System.Windows.Forms.Cursor]::Position;[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((($Pos.X) + 10) , $Pos.Y)"`,
-        // );
-        // Windows.exec(
-        //   `powershell "Add-Type -AssemblyName System.Windows.Forms;$Pos = [System.Windows.Forms.Cursor]::Position;[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((($Pos.X) + 20) , $Pos.Y)"`,
-        // );
+        Windows.exec(
+          `powershell "Add-Type -AssemblyName System.Windows.Forms;$Pos = [System.Windows.Forms.Cursor]::Position;[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((($Pos.X) + 10) , $Pos.Y)"`,
+        );
+        Windows.exec(
+          `powershell "Add-Type -AssemblyName System.Windows.Forms;$Pos = [System.Windows.Forms.Cursor]::Position;[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((($Pos.X) + 20) , $Pos.Y)"`,
+        );
+
+        screen.turnOn();
 
         // Windows.exec(
         //   'powershell -NonInteractive (Add-Type \'[DllImport(\\"user32.dll\\")]^public static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, int dwExtraInfo);\' -Name user32 -PassThru)::mouse_event(1,1,0,0,0)',
