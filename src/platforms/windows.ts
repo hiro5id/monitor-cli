@@ -1,6 +1,7 @@
 import { MonitorControl } from './monitor-control';
 import { ChildProcessWithoutNullStreams, spawn } from 'child_process';
 import { platform } from 'os';
+import { Bot } from 'mousebot';
 
 export class Windows implements MonitorControl {
   constructor() {
@@ -34,14 +35,18 @@ export class Windows implements MonitorControl {
   }
 
   wake(): Promise<string> {
-    return new Promise<string>((resolve, reject) => {
+    return new Promise<string>(async (resolve, reject) => {
       try {
-        Windows.exec(
-          'powershell -NonInteractive (Add-Type \'[DllImport(\\"user32.dll\\")]^public static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, int dwExtraInfo);\' -Name user32 -PassThru)::mouse_event(1,1,0,0,0)',
-        );
-        Windows.exec(
-          'powershell -NonInteractive (Add-Type \'[DllImport(\\"user32.dll\\")]^public static extern int SendMessage(int hWnd, int hMsg, int wParam, int lParam);\' -Name a -Pas)::SendMessage(0xffff,0x0112,0xF170,-0x0001)',
-        );
+        let bot = new Bot();
+        //Move the mouse to the coordinates x=400, y=500.
+        await bot.mouse.move(400, 500);
+
+        // Windows.exec(
+        //   'powershell -NonInteractive (Add-Type \'[DllImport(\\"user32.dll\\")]^public static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, int dwExtraInfo);\' -Name user32 -PassThru)::mouse_event(1,1,0,0,0)',
+        // );
+        // Windows.exec(
+        //   'powershell -NonInteractive (Add-Type \'[DllImport(\\"user32.dll\\")]^public static extern int SendMessage(int hWnd, int hMsg, int wParam, int lParam);\' -Name a -Pas)::SendMessage(0xffff,0x0112,0xF170,-0x0001)',
+        // );
       } catch (err) {
         reject(err);
         return;

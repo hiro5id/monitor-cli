@@ -49,6 +49,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "mousebot": "^1.0.1"
   }
 }
