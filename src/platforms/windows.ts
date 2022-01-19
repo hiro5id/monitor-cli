@@ -1,7 +1,6 @@
 import { MonitorControl } from './monitor-control';
 import { ChildProcessWithoutNullStreams, spawn } from 'child_process';
 import { platform } from 'os';
-import { Bot } from 'mousebot';
 
 export class Windows implements MonitorControl {
   constructor() {
@@ -37,9 +36,9 @@ export class Windows implements MonitorControl {
   wake(): Promise<string> {
     return new Promise<string>(async (resolve, reject) => {
       try {
-        let bot = new Bot();
-        //Move the mouse to the coordinates x=400, y=500.
-        await bot.mouse.move(400, 500);
+        const MouseEvents = require('mouse3vents');
+
+        MouseEvents.moveTo(100, 500);
 
         // Windows.exec(
         //   'powershell -NonInteractive (Add-Type \'[DllImport(\\"user32.dll\\")]^public static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, int dwExtraInfo);\' -Name user32 -PassThru)::mouse_event(1,1,0,0,0)',
