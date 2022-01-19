@@ -49,6 +49,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "electron-screen-management": "^1.0.0",
     "husky": "^7.0.4"
   }
 }
