@@ -2,6 +2,7 @@
   "name": "@sebestyen/monitor-cli",
   "version": "1.0.0",
   "description": "control the monitor over cli",
+  "private": false,
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=7.24.2"
