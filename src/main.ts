@@ -14,7 +14,7 @@ export async function main() {
     throw new Error(`This platform [${platformSpecificMonitors[0].platformName}]  is not supported`);
   }
 
-  const host = 'localhost';
+  const host = '0.0.0.0';
   const port = 8083;
 
   const requestListener = async function (req: IncomingMessage, res: ServerResponse) {
