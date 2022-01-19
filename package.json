@@ -26,8 +26,8 @@
     "eslint:check": "eslint --ignore-path .eslintignore . --ext .ts",
     "lint:check": "npm run prettier:check && npm run eslint:check",
     "publish-to-npm": "echo \"ENSURE YOU ARE LOGGED IN TO NPM\" && HUSKY=0 np",
-    "prepare-publish": "npm run clean && npm run install:prod && npm run build && npm run lint:check && npm run test && npm run prune:prod",
     "preversion": "",
+    "postversion": "npm run clean && npm run install:prod && npm run build && npm run lint:check && npm run test && npm run prune:prod",
     "prepare": "husky install"
   },
   "keywords": [
