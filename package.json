@@ -26,7 +26,8 @@
     "eslint:check": "eslint --ignore-path .eslintignore . --ext .ts",
     "lint:check": "npm run prettier:check && npm run eslint:check",
     "publish-to-npm": "echo \"ENSURE YOU ARE LOGGED IN TO NPM\" && HUSKY=0 np",
-    "preversion": "npm run clean && npm run install:prod && npm run build && npm run lint:check && npm run test && npm run prune:prod",
+    "prepare-publish": "npm run clean && npm run install:prod && npm run build && npm run lint:check && npm run test && npm run prune:prod",
+    "preversion": "",
     "prepare": "husky install"
   },
   "keywords": [
@@ -35,9 +36,6 @@
   ],
   "author": "",
   "license": "MIT",
-  "dependencies-notes": {
-    "husky": "Used to automatically run GIT pre commit hooks. This MUST remain in the prod-dependency section, otherwise the publish-to-npm script will fail when it tries to bump versions and it needs to commit, but dev dependencies will have been cleaned up at this point"
-  },
   "devDependencies": {
     "@types/node": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
@@ -45,13 +43,11 @@
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-unicorn": "^40.1.0",
+    "husky": "^7.0.4",
     "np": "^7.6.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.21",
     "typescript": "^4.5.4"
-  },
-  "dependencies": {
-    "husky": "^7.0.4"
   }
 }
