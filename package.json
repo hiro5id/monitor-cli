@@ -2,10 +2,15 @@
   "name": "@sebestyen/monitor-cli",
   "version": "1.0.0",
   "description": "control the monitor over cli",
-  "main": "./dist/index.js",
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=7.24.2"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "bin": {
+    "monitor-cli": "./dist/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",

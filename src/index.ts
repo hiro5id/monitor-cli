@@ -3,7 +3,7 @@ import { Linux } from './platforms/linux';
 import { Windows } from './platforms/windows';
 import { Darwin } from './platforms/darwin';
 
-async function main() {
+export async function main() {
   const platformSpecificMonitors: MonitorControl[] = [new Linux(), new Windows(), new Darwin()];
 
   const thisPlatform = platformSpecificMonitors.find(f => f.supported());
