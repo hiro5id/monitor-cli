@@ -1,2 +1,2 @@
 # monitor-cli
-control the monitor over cli
+control the monitor (on/off) over HTTP
