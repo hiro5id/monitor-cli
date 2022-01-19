@@ -14,7 +14,7 @@
     "monitor-cli": "./dist/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "echo \"no test specified\" && exit 0",
     "build": "rimraf ./dist && tsc -sourcemap",
     "install:prod": "npm ci",
     "start": "node --require source-map-support/register ./dist/cli.js",
@@ -26,7 +26,7 @@
     "eslint:check": "eslint --ignore-path .eslintignore . --ext .ts",
     "lint:check": "npm run prettier:check && npm run eslint:check",
     "publish-to-npm": "echo \"ENSURE YOU ARE LOGGED IN TO NPM\" && HUSKY=0 np",
-    "postversion": "npm run clean && npm run install:prod && npm run build && npm run lint:check && npm run test && npm run prune:prod",
+    "--postversion": "npm run clean && npm run install:prod && npm run build && npm run lint:check && npm run test && npm run prune:prod",
     "prepare": "husky install"
   },
   "keywords": [
