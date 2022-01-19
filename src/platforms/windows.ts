@@ -34,11 +34,21 @@ export class Windows implements MonitorControl {
   }
 
   wake(): Promise<string> {
+    var robot = require('robotjs');
     return new Promise<string>(async (resolve, reject) => {
       try {
-        const MouseEvents = require('mouse3vents');
+        // Speed up the mouse.
+        robot.setMouseDelay(2);
 
-        MouseEvents.moveTo(100, 500);
+        const twoPI = Math.PI * 2.0;
+        const screenSize = robot.getScreenSize();
+        const height = screenSize.height / 2 - 10;
+        const width = screenSize.width;
+
+        for (let x = 0; x < width; x++) {
+          const y = height * Math.sin((twoPI * x) / width) + height;
+          robot.moveMouse(x, y);
+        }
 
         // Windows.exec(
         //   'powershell -NonInteractive (Add-Type \'[DllImport(\\"user32.dll\\")]^public static extern void mouse_event(uint dwFlags, int dx, int dy, uint dwData, int dwExtraInfo);\' -Name user32 -PassThru)::mouse_event(1,1,0,0,0)',
